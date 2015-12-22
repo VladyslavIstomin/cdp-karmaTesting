@@ -5,7 +5,7 @@ define(function() {
     };
 
     App.prototype.render = function() {
-        this.el.html('require.js up and running');
+        this.el.html('Run CDP project');
     };
 
 	App.prototype.sum = function(a, b) {

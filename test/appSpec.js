@@ -1,4 +1,4 @@
-define(['app', 'jquery', 'underscore'], function(App, $, _) {
+define(['app', 'parser', 'pattern', 'jquery', 'underscore'], function(App, Parser, Pattern, $, _) {
 
     describe('just checking', function() {
 	    var el = $('<div></div>');
@@ -8,7 +8,7 @@ define(['app', 'jquery', 'underscore'], function(App, $, _) {
         it('works for app', function() {
             app.render();
 
-            expect(el.text()).toEqual('require.js up and running');
+            expect(el.text()).toEqual('Run CDP project');
         });
 
         it('works for underscore', function() {
@@ -21,5 +21,17 @@ define(['app', 'jquery', 'underscore'], function(App, $, _) {
 	    });
 
     });
+
+	describe('check Parser', function() {
+		var pars = new Parser('string');
+
+		it('init Parser', function() {
+			expect(pars.exec).toEqual('string')
+		});
+
+		it('Pattern txt', function() {
+			expect(Pattern.txt('world').exec()).toEqual({text: 'world'})
+		})
+	});
 
 });
