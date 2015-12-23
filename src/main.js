@@ -2,8 +2,7 @@ requirejs.config({
     paths: {
         'jquery': '../lib/jquery',
         'underscore': '../lib/underscore',
-	    'parser': '../parser/parser',
-	    'pattern': '../parser/pattern'
+        'parser': '../parser/parser'
     },
 
     shim: {
@@ -13,7 +12,7 @@ requirejs.config({
     }
 });
 
-define(['app', 'parser', 'pattern', 'jquery'], function (App, Parser, pattern, $) {
+define(['app', 'parser', 'jquery'], function (App, parser, $) {
     var app = new App($('body'));
     app.render();
 
