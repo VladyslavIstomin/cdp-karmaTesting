@@ -31,7 +31,16 @@ define(['app', 'parser', 'pattern', 'jquery', 'underscore'], function(App, Parse
 
 		it('Pattern txt', function() {
 			expect(Pattern.txt('world').exec()).toEqual({text: 'world'})
-		})
+		});
+
+		it('Pattern select', function() {
+			expect(Pattern.select('SELECT column1, column2 FROM table1, table2').exec()).toEqual({text: 'world', selectCol: ['column1','column2']})
+		});
+
+		it('Pattern from', function() {
+			var request = Pattern.from('SELECT column1, column2 FROM table1, table2').exec();
+			expect(request).toEqual({text: 'world', selectCol: ['column1','column2'], fromTable: ['table1','table2']})
+		});
 	});
 
 });
